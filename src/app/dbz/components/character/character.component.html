@@ -1,0 +1,18 @@
+<h4>Agregar Personaje</h4>
+<!-- De esta manera asignamos el evento submit a nuestro formulario el cual ejecuta la funcion emirCharacter -->
+<form class="row" (submit)="emitCharacter()">
+  <!-- El Two-Way Data Binding (enlace bidireccional de datos) en Angular es una característica que permite
+      sincronizar automáticamente los datos entre el componente de TypeScript y el HTML del componente.
+      Esto significa que si los datos cambian en el modelo (componente), se reflejan automáticamente en la vista (HTML),
+      y si cambian en la vista (por ejemplo, a través de la entrada del usuario), se actualizan automáticamente en el modelo
+  -->
+  <input type="text" [(ngModel)]="character.name" name= "name" placeholder="Nombre" class="form-control mb-2">
+  <input type="number" [(ngModel)]="character.power" name="power" placeholder="Poder" class="form-control mb-2">
+
+  <button type="submit" class="btn btn-primary">
+    Agregar
+  </button>
+
+  <!-- Con el pipe | json lo que hacemos es que se imprima nuestro objeto tal como es en formato json, porque si no se veria asi [object object] -->
+  <pre>{{character | json}}</pre>
+</form>

@@ -1,0 +1,47 @@
+<h4>Listado</h4>
+<ul class="list-group">
+  <!-- Para agregar un indice a los elementois del ng for creamos una variable de indice y la igualamos a index que es un oobjeto del propio ng for -->
+  <li *ngFor="
+    let character of characterList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+  " class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="{
+      'list-group-item-dark': isLast,
+      'list-group-item-info': isEven,
+    }">
+    <!-- El ndClass Enlaza clases de css basado en un objeto o expresión. -->
+
+    <div>
+      <span class="text-primary">{{ i }}.</span>
+
+      <span> {{ character.name}} -</span>
+
+      <strong> Power: </strong>
+
+      <span> {{character.power}} </span>
+      <br>
+
+      <!-- Para determinar dentro de un ng for si uno de sus elementos es el primero se puede hacer de dos formas -->
+      <span>Es el primero: {{ i === 0 }} </span>
+      <span>Es el primero: {{ isFirst }}</span>
+
+      <br>
+      <!-- Para determinar dentro de un ng for si uno de sus elementos es el ultimo se puede hacer de dos maneras -->
+      <span>Es el Ultimo: {{ i === characterList.length - 1}} </span>
+      <span>Es el Ultimo: {{ isLast }}</span>
+
+      <br>
+      <span>Es Par: {{isEven}}</span>
+
+      <br>
+      <span>Es Impar: {{ isOdd }}</span>
+
+    </div>
+
+    <button (click)="onDeleteCharacter(character.id)" class="btn btn-danger"> X</button>
+
+  </li>
+</ul>

@@ -1,0 +1,16 @@
+<h1>DBZ Personajes</h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!--Llamamos el componente de lista que creamos en la carpeta components del modulo DBZ-->
+    <!--Para enviarle la lista de characters que tiene el componente main-page al componente hijo ListComponente usamos los []-->
+    <dbz-list [characterList]="characters" (onDeleteById)="onDeleteCharacter($event)"></dbz-list>
+
+  </div>
+
+  <div class="col">
+    <!--Llamamos el componente de Character que creamos en la carpeta components del modulo DBZ-->
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)" ></dbz-add-character>
+  </div>
+</div>

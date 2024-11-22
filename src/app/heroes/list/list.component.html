@@ -1,0 +1,31 @@
+
+<h3>Listado de Heroes</h3>
+
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Heroe Borrado <small class="text-danger">{{deletedHero}}</small></h3>
+</div>
+
+<!--ng-template es una directiva o elemento que se utiliza para definir un bloque de contenido HTML
+    que no se renderiza directamente en el DOM, sino que actúa como una plantilla reutilizable.
+    Se usa junto con otras directivas o componentes para inyectar contenido dinámico en diferentes partes de la aplicación.
+
+    Usamos una referencia como se ven en el tamplete que viene de un ng-if, esto see conoce en angular como una referencia local
+    si la condicion del ng-if anterior no se cumple mostrara el contenido que tiene esta directiva ng-template
+-->
+<ng-template #nothingWasDeleted>
+  <h3>No ha Borrado Nada</h3>
+</ng-template>
+
+
+
+<button class="btn btn-outline-danger" *ngIf="heroNames.length > 0" (click)="removeLastHero()">
+  Borrar ultimo héroe
+</button>
+
+<!--De esta manera usamos el ngFor en Angular -->
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames"
+    class="list-group-item">
+    {{name}}
+  </li>
+</ul>
